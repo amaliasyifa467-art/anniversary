@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 2nd Anniversary, Ayangku!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Dancing Script', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #fce4ec 0%, #ffebee 100%); /* Pink soft gradient */
+            color: #d81b60; /* Merah muda gelap */
+            text-align: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        #pesan-utama {
+            font-size: 3em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        #pesan-utama:hover {
+            transform: scale(1.1);
+            color: #ff5252; /* Merah cerah saat di-hover */
+        }
+
+        #pesan-spesial {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.6em;
+            font-style: italic;
+            color: #880e4f; /* Merah gelap */
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            max-width: 80%;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="pesan-utama">1 . . 2 . . 3 . .!! DOR!! Hehe, aku ada sesuatu buat ayang 💝 Klik disini, sayangkuu!</div>
+    <div id="pesan-spesial"></div>
+
+    <script>
+        const pesanUtama = document.getElementById('pesan-utama');
+        const pesanSpesial = document.getElementById('pesan-spesial');
+
+        const daftarPesan = [
+            "Ayang pernah gak menghitung hari, berapa hari kita udah bersama-sama?",
+            "Aku selalu suka menghitung waktu itu, karena aku tidak menyangka kalau kita bisa sampai di waktu ini yaa.",
+            "Hari ini tepatnya sudah 731 hari atau 2 tahun kita bersama.",
+            "Walaupun banyak rintangan, aku bersyukur sekali karena kita selalu bisa bertahan.",
+            "Aku cuma mau ngucapin \"Happy anniversary yaa sayangkuu cintakuu maniskuu🤍\"",
+            "Terima kasih ayang selalu sabar dan ngertiin aku, walaupun aku tahu aku cukup keras kepala, tapi terima kasih karena ayang selalu bisa bertahan.",
+            "Maafkan aku yaa jika aku banyak buat ayang kesulitan untuk memahami aku.",
+            "Tapi ayang harus tahu kalau ayang itu laki-laki yang paling berharga di hidup aku, ayang sumber kebahagiaanku, ayang tempat aku pulang.",
+            "Aku sangat-sangat bersyukur dan beruntung sekali memiliki ayang.",
+            "Semoga cinta kita akan terus bertumbuh dan selalu menemukan cara untuk semakin mencintai setiap harinya yaa^^",
+            "I love youu to the moon and back💞"
+        ];
+
+        let pesanSaatIni = -1;
+
+        pesanUtama.addEventListener('click', () => {
+            let pesanAcak;
+            do {
+                pesanAcak = Math.floor(Math.random() * daftarPesan.length);
+            } while (pesanAcak === pesanSaatIni);
+
+            pesanSaatIni = pesanAcak;
+            
+            pesanSpesial.style.opacity = '0';
+            setTimeout(() => {
+                pesanSpesial.textContent = daftarPesan[pesanSaatIni];
+                pesanSpesial.style.opacity = '1';
+            }, 500);
+        });
+    </script>
+
+</body>
+</html>
